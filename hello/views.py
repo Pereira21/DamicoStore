@@ -1,12 +1,17 @@
 import re
 from django.utils.timezone import datetime
 from django.http import HttpResponse
+from django.shortcuts import render
 
 def home(request):
     return HttpResponse("Constará todos os produtos!")
 
 def quemSomos(request):
-    return HttpResponse("Aqui constará o texto quem somos!")
+    print(request.build_absolute_uri()) #optional
+    return render(
+        request,
+        'hello/quemSomos.html'
+    )
 
 def masculino(request):
     return HttpResponse("Aqui será a listagem de itens para o público masculino!")
