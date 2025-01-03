@@ -4,20 +4,16 @@ from django.http import HttpResponse
 from django.shortcuts import render
 
 def home(request):
-    return HttpResponse("Constará todos os produtos!")
+    return render(request, "hello/home.html")
 
 def quemSomos(request):
-    print(request.build_absolute_uri()) #optional
-    return render(
-        request,
-        'hello/quemSomos.html'
-    )
+    return render(request, "hello/quemSomos.html")
 
 def masculino(request):
-    return HttpResponse("Aqui será a listagem de itens para o público masculino!")
+    return render(request, "hello/masculino.html")
 
 def feminino(request):
-    return HttpResponse("Aqui será a listagem de itens para o público feminino!")
+    return render(request, "hello/feminino.html")
 
 # def hello_there(request, name):
 #     now = datetime.now()
